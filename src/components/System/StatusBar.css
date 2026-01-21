@@ -1,0 +1,46 @@
+.status-bar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 100;
+    pointer-events: none;
+    /* Let touches pass through to apps */
+}
+
+.status-time {
+    margin: 0 10px;
+}
+
+.status-icon {
+    font-size: 10px;
+    margin: 0 4px;
+}
+
+.battery-pill {
+    width: 16px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1px;
+}
+
+.battery-level {
+    height: 100%;
+    background: white;
+    max-width: 100%;
+}
+
+.battery-low .battery-level {
+    background: #ff4444;
+}
