@@ -4,8 +4,9 @@
     height: 360px;
     background-color: #000;
     border-radius: 50%;
-    border: 12px solid #333; /* The Bezel */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 12px solid #333;
+    /* The Bezel */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,24 +24,43 @@
     overflow: hidden;
     /* Masking for the round screen content */
     mask-image: radial-gradient(circle, black 70%, transparent 100%);
-    -webkit-mask-image: radial-gradient(white 100%, transparent 100%); /* Full circle mask */
+    -webkit-mask-image: radial-gradient(white 100%, transparent 100%);
+    /* Full circle mask */
 }
 
 /* Physical Buttons on the side */
 .watch-button {
     position: absolute;
-    right: -16px; 
+    right: -16px;
     width: 8px;
     height: 60px;
     background: #444;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s;
+    display: flex;
+    /* For centering content if needed, though we use ::after */
+    align-items: center;
 }
 
 .watch-button:active {
     background: #666;
-    right: -14px; /* Press effect */
+    right: -14px;
+    /* Press effect */
+}
+
+/* Button Labels */
+.watch-button::after {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    /* Push to the right of the button */
+    color: #666;
+    font-size: 0.7rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 .btn-power {

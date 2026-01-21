@@ -22,11 +22,13 @@ export const WatchFrame: React.FC<WatchFrameProps> = ({ children, onHome }) => {
             <div
                 className="watch-button btn-power"
                 title="Power / Toggle Screen"
+                data-label="POWER"
                 onClick={toggleScreen}
             />
             <div
                 className="watch-button btn-home"
                 title="Home"
+                data-label="HOME"
                 onClick={onHome}
             />
         </div>
