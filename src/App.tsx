@@ -7,6 +7,10 @@ import { SimulationPanel } from './components/Debug/SimulationPanel';
 import { AppGrid } from './components/Launcher/AppGrid';
 import { ClockApp } from './apps/ClockApp';
 import { HealthApp } from './apps/HealthApp';
+import { SettingsApp } from './apps/SettingsApp';
+import { PhoneApp } from './apps/PhoneApp';
+import { WeatherApp } from './apps/WeatherApp';
+import { MusicApp } from './apps/MusicApp';
 import { NotificationOverlay } from './components/System/NotificationOverlay';
 import './App.css'; // Global styles
 
@@ -39,13 +43,13 @@ const OSInterface: React.FC = () => {
       case 'health':
         return <HealthApp />;
       case 'settings':
-        return (
-          <div style={{ padding: '40px 20px', textAlign: 'center' }}>
-            <h3>Settings</h3>
-            <p>Bluetooth: On</p>
-            <p>Brightness: 80%</p>
-          </div>
-        );
+        return <SettingsApp />;
+      case 'phone':
+        return <PhoneApp />;
+      case 'weather':
+        return <WeatherApp />;
+      case 'music':
+        return <MusicApp />;
       default:
         return <div style={{ color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>App not found</div>;
     }

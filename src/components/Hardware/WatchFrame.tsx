@@ -8,12 +8,12 @@ interface WatchFrameProps {
 }
 
 export const WatchFrame: React.FC<WatchFrameProps> = ({ children, onHome }) => {
-    const { toggleScreen } = useSystem();
+    const { toggleScreen, brightness } = useSystem();
 
     return (
         <div className="watch-wrapper" style={{ position: 'relative', width: 'fit-content', margin: 'auto' }}>
             <div className="watch-container">
-                <div className="watch-screen">
+                <div className="watch-screen" style={{ filter: `brightness(${brightness}%)` }}>
                     {children}
                 </div>
             </div>

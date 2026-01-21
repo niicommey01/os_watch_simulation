@@ -13,6 +13,8 @@ const APPS: AppItem[] = [
     { id: 'health', label: 'Health', icon: '❤️', color: '#d32f2f' },
     { id: 'settings', label: 'Settings', icon: '⚙️', color: '#757575' },
     { id: 'weather', label: 'Weather', icon: '🌤️', color: '#0288d1' },
+    { id: 'phone', label: 'Phone', icon: '📞', color: '#4caf50' },
+    { id: 'music', label: 'Music', icon: '🎵', color: '#e91e63' },
 ];
 
 interface AppGridProps {

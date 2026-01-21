@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Wearable OS Simulation (Group 45)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based simulation of a next-generation Operating System designed for circular smartwatch displays.
 
-Currently, two official plugins are available:
+## Project Overview
+This project simulates the core functions of a wearable OS, focusing on resource constraints, circular UI interaction, and hardware sensor integration. It allows developers to test OS logic (battery management, interrupts) in a web browser without needing physical hardware.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+*   **Circular UI**: Custom CSS engine to handle round displays and bezel masking.
+*   **Kernel Simulation**:
+    *   **Battery Management**: Dynamic drain based on active peripherals (WiFi, Screen, Sensors).
+    *   **Shutdown Logic**: Hard lockout when battery hits 0%.
+*   **Applications**:
+    *   **Clock**: Real-time timekeeping.
+    *   **Health**: Live heart-rate visualization (SVG Graphs).
+    *   **Settings**: Control Brightness, WiFi, and Bluetooth.
+    *   **Phone**: Functional T9 Dialer.
+*   **Simulation Panel**: Sidebar controls to inject "Hardware" events (Sensor data, Notifications).
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+*   Node.js (v18 or higher)
+*   npm
 
-## Expanding the ESLint configuration
+### Installation
+1.  Clone the repository.
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Running the Simulation
+Start the development server:
+```bash
+npm run dev
 ```
+Open your browser to the URL shown (usually `http://localhost:5173`).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
+*   `src/kernel`: Contains `SystemContext` (OS State) and `SensorContext` (Hardware Simulation).
+*   `src/components/Hardware`: The WatchFrame and Bezel UI.
+*   `src/components/System`: System-level overlays (Status Bar, Notifications).
+*   `src/apps`: Individual application modules (Clock, Health, Phone, etc).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Documentation
+*   [Technical Report Content](Technical_Report_Content.md): Full detailed report.
+*   [Presentation Slides](Presentation_Slides.md): Content for the final presentation.
+*   [Technical Notes](Technical_Non_Technical_Notes.md): Additional implementation details.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+**Group 45** - DCIT 301 Operating Systems

@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { useSystem } from '../../kernel/SystemContext';
 import './StatusBar.css';
 
 export const StatusBar: React.FC = () => {
-    const { currentTime, batteryLevel, isBluetoothOn } = useSystem();
+    const { currentTime, batteryLevel, isBluetoothOn, isWifiOn } = useSystem();
 
     const formatTime = (date: Date) => {
         return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -14,6 +15,7 @@ export const StatusBar: React.FC = () => {
             {/* Left Side: Icons like BT or Notifications */}
             <div className="status-left">
                 {isBluetoothOn && <span className="status-icon">ᛒ</span>}
+                {isWifiOn && <span className="status-icon">📶</span>}
             </div>
 
             {/* Center: Time */}

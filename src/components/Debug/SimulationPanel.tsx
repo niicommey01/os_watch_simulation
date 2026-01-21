@@ -73,11 +73,26 @@ export const SimulationPanel: React.FC = () => {
             <div style={{ background: '#252525', padding: '10px', borderRadius: '5px' }}>
                 <h3 style={{ margin: '0 0 10px 0', fontSize: '0.9rem', color: '#888' }}>EVENTS</h3>
                 <button
-                    onClick={() => addNotification({
-                        title: 'New Message',
-                        message: 'Hey, are you coming to the gym?',
-                        appId: 'system'
-                    })}
+                    onClick={() => {
+                        const messages = [
+                            { title: 'New Message', message: 'Hey, are you coming to the gym?' },
+                            { title: 'Missed Call', message: 'Mom called (2m ago)' },
+                            { title: 'Email', message: 'Meeting rescheduled to 3 PM.' },
+                            { title: 'Instagram', message: '@sarah liked your story.' },
+                            { title: 'Calendar', message: 'Dentist Appointment in 30 mins.' },
+                            { title: 'WhatsApp', message: 'Group: Lunch at 12?' },
+                            { title: 'News', message: 'Breaking: Local cat wins award.' },
+                            { title: 'Uber', message: 'Your ride is 2 mins away.' },
+                            { title: 'Spotify', message: 'Now Playing: Blinding Lights' }
+                        ];
+                        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+                        addNotification({
+                            title: randomMsg.title,
+                            message: randomMsg.message,
+                            appId: 'system'
+                        });
+                    }}
                     style={{
                         width: '100%',
                         padding: '8px',
@@ -89,15 +104,27 @@ export const SimulationPanel: React.FC = () => {
                         marginBottom: '10px'
                     }}
                 >
-                    Push Notification
+                    Push Notification (Random)
                 </button>
 
                 <button
-                    onClick={() => addNotification({
-                        title: 'Goal Reached!',
-                        message: 'You walked 10,000 steps today.',
-                        appId: 'health'
-                    })}
+                    onClick={() => {
+                        const healthAlerts = [
+                            { title: 'Goal Reached!', message: 'You walked 10,000 steps today.' },
+                            { title: 'High Heart Rate', message: 'HR above 120bpm while resting.' },
+                            { title: 'Stand Up!', message: 'Time to stand up and move a bit.' },
+                            { title: 'Hydration', message: 'Drink some water.' },
+                            { title: 'Sleep Goal', message: 'You met your sleep goal (8h).' },
+                            { title: 'Workout', message: 'Workout auto-detected: Walking' }
+                        ];
+                        const randomHealth = healthAlerts[Math.floor(Math.random() * healthAlerts.length)];
+
+                        addNotification({
+                            title: randomHealth.title,
+                            message: randomHealth.message,
+                            appId: 'health'
+                        });
+                    }}
                     style={{
                         width: '100%',
                         padding: '8px',
@@ -108,7 +135,7 @@ export const SimulationPanel: React.FC = () => {
                         cursor: 'pointer'
                     }}
                 >
-                    Push Health Alert
+                    Push Health Alert (Random)
                 </button>
             </div>
 
